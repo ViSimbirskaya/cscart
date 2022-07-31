@@ -1,0 +1,7 @@
+/tmp/*
+/tmp/*
+!/tmp/.gitkeep
+
+/var/cache/*
+/images/detailed/*
+/images/thumbnails/*
