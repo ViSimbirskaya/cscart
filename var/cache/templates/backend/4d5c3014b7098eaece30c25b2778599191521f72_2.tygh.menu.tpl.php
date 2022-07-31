@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-07-08 12:04:48
+/* Smarty version 4.1.0, created on 2022-07-27 21:07:48
   from 'C:\OpenServer\domains\cscart\design\backend\templates\menu.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_62c7f330eef2c9_69418778',
+  'unifunc' => 'content_62e17ef44c6cd6_01659531',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4d5c3014b7098eaece30c25b2778599191521f72' => 
     array (
       0 => 'C:\\OpenServer\\domains\\cscart\\design\\backend\\templates\\menu.tpl',
-      1 => 1656493754,
+      1 => 1658945263,
       2 => 'tygh',
     ),
   ),
@@ -26,13 +26,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'tygh:common/quick_menu.tpl' => 1,
   ),
 ),false)) {
-function content_62c7f330eef2c9_69418778 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62e17ef44c6cd6_01659531 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->smarty->ext->_tplFunction->registerTplFunctions($_smarty_tpl, array (
   'menu_attrs' => 
   array (
     'compiled_filepath' => 'C:\\OpenServer\\domains\\cscart\\var\\cache\\templates\\backend\\4d5c3014b7098eaece30c25b2778599191521f72_2.tygh.menu.tpl.php',
     'uid' => '4d5c3014b7098eaece30c25b2778599191521f72',
-    'call_name' => 'smarty_template_function_menu_attrs_72041336262c7f330e46274_61830256',
+    'call_name' => 'smarty_template_function_menu_attrs_72733722562e17ef43ef190_46428197',
   ),
 ));
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\OpenServer\\domains\\cscart\\app\\functions\\smarty_plugins\\block.hook.php','function'=>'smarty_block_hook',),1=>array('file'=>'C:\\OpenServer\\domains\\cscart\\app\\functions\\smarty_plugins\\modifier.sizeof.php','function'=>'smarty_modifier_sizeof',),2=>array('file'=>'C:\\OpenServer\\domains\\cscart\\app\\functions\\smarty_plugins\\function.include_ext.php','function'=>'smarty_function_include_ext',),3=>array('file'=>'C:\\OpenServer\\domains\\cscart\\app\\functions\\smarty_plugins\\modifier.enum.php','function'=>'smarty_modifier_enum',),4=>array('file'=>'C:\\OpenServer\\domains\\cscart\\app\\functions\\smarty_plugins\\modifier.truncate.php','function'=>'smarty_modifier_truncate',),));
@@ -162,16 +162,16 @@ if ($_smarty_tpl->tpl_vars['storefront_id']->value) {
 echo "&storefront_id=";
 echo (string)$_smarty_tpl->tpl_vars['storefront_id']->value;
 }
-$_prefixVariable14=ob_get_clean();
-$_smarty_tpl->_assignInScope('storefront_url', fn_url("profiles.act_as_user?user_id=".((string)$_smarty_tpl->tpl_vars['auth']->value['user_id'])."&area=C".$_prefixVariable14));?>
+$_prefixVariable1=ob_get_clean();
+$_smarty_tpl->_assignInScope('storefront_url', fn_url("profiles.act_as_user?user_id=".((string)$_smarty_tpl->tpl_vars['auth']->value['user_id'])."&area=C".$_prefixVariable1));?>
                             <?php } else { ?>
                                 <?php ob_start();
 if ($_smarty_tpl->tpl_vars['storefront_id']->value) {
 echo "&storefront_id=";
 echo (string)$_smarty_tpl->tpl_vars['storefront_id']->value;
 }
-$_prefixVariable15=ob_get_clean();
-$_smarty_tpl->_assignInScope('storefront_url', $_smarty_tpl->tpl_vars['runtime']->value['company_id'] ? "companies.products?company_id=".((string)$_smarty_tpl->tpl_vars['runtime']->value['company_id']).$_prefixVariable15 : '');?>
+$_prefixVariable2=ob_get_clean();
+$_smarty_tpl->_assignInScope('storefront_url', $_smarty_tpl->tpl_vars['runtime']->value['company_id'] ? "companies.products?company_id=".((string)$_smarty_tpl->tpl_vars['runtime']->value['company_id']).$_prefixVariable2 : '');?>
                                 <?php $_smarty_tpl->_assignInScope('storefront_url', fn_url($_smarty_tpl->tpl_vars['storefront_url']->value,"C"));?>
                                 <?php if ($_smarty_tpl->tpl_vars['runtime']->value['storefront_access_key']) {?>
                                     <?php $_smarty_tpl->_assignInScope('storefront_url', fn_link_attach($_smarty_tpl->tpl_vars['storefront_url']->value,"store_access_key=".((string)$_smarty_tpl->tpl_vars['runtime']->value['storefront_access_key'])));?>
@@ -619,7 +619,7 @@ $_smarty_tpl->tpl_vars['m']->do_else = false;
                             class="accordion-group nav__header-main-menu-item <?php echo htmlspecialchars($_smarty_tpl->tpl_vars['is_active_menu_class']->value, ENT_QUOTES, 'UTF-8');?>
 "
                         <?php } else { ?>
-                            class="dropdown nav__header-main-menu-item <?php echo htmlspecialchars($_smarty_tpl->tpl_vars['is_active_menu_class']->value, ENT_QUOTES, 'UTF-8');?>
+                            class="dropdown nav__header-main-menu-item asd <?php echo htmlspecialchars($_smarty_tpl->tpl_vars['is_active_menu_class']->value, ENT_QUOTES, 'UTF-8');?>
 "
                         <?php }?>
                     >
@@ -654,7 +654,7 @@ echo htmlspecialchars(fn_url($_smarty_tpl->tpl_vars['m']->value['href']), ENT_QU
                                     <?php }?>
                                 "
                             <?php } else { ?>
-                                class="dropdown-menu nav__header-main-menu-submenu <?php echo htmlspecialchars($_smarty_tpl->tpl_vars['is_active_menu_class']->value, ENT_QUOTES, 'UTF-8');?>
+                                class="dropdown-menu nav__header-main-menu-submenu 123 <?php echo htmlspecialchars($_smarty_tpl->tpl_vars['is_active_menu_class']->value, ENT_QUOTES, 'UTF-8');?>
 "
                             <?php }?>
                             id="<?php if ($_smarty_tpl->tpl_vars['m']->value['href']) {
@@ -731,7 +731,7 @@ if ($_smarty_tpl->tpl_vars['settings']->value['Appearance']['show_menu_descripti
                                     <?php if ($_smarty_tpl->tpl_vars['second_level']->value['subitems']) {?>
                                         <ul
                                             <?php if ($_smarty_tpl->tpl_vars['navigation_accordion']->value) {?>
-                                                class="collapse
+                                                class="collapse 234
                                                     <?php if ($_smarty_tpl->tpl_vars['second_level_title']->value == $_smarty_tpl->tpl_vars['navigation']->value['subsection'] && $_smarty_tpl->tpl_vars['first_level_title']->value == $_smarty_tpl->tpl_vars['navigation']->value['selected_tab']) {?>
                                                         in
                                                     <?php }?>
@@ -917,9 +917,9 @@ echo smarty_block_hook(array('name'=>"menu:general"), ob_get_clean(), $_smarty_t
 }
 array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);
 }
-/* smarty_template_function_menu_attrs_72041336262c7f330e46274_61830256 */
-if (!function_exists('smarty_template_function_menu_attrs_72041336262c7f330e46274_61830256')) {
-function smarty_template_function_menu_attrs_72041336262c7f330e46274_61830256(Smarty_Internal_Template $_smarty_tpl,$params) {
+/* smarty_template_function_menu_attrs_72733722562e17ef43ef190_46428197 */
+if (!function_exists('smarty_template_function_menu_attrs_72733722562e17ef43ef190_46428197')) {
+function smarty_template_function_menu_attrs_72733722562e17ef43ef190_46428197(Smarty_Internal_Template $_smarty_tpl,$params) {
 $params = array_merge(array('attrs'=>array()), $params);
 foreach ($params as $key => $value) {
 $_smarty_tpl->tpl_vars[$key] = new Smarty_Variable($value, $_smarty_tpl->isRenderingCache);
@@ -940,5 +940,5 @@ $_smarty_tpl->tpl_vars['value']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     <?php
 }}
-/*/ smarty_template_function_menu_attrs_72041336262c7f330e46274_61830256 */
+/*/ smarty_template_function_menu_attrs_72733722562e17ef43ef190_46428197 */
 }

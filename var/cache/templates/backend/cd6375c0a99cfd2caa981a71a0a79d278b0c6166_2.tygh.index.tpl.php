@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-07-08 12:04:43
+/* Smarty version 4.1.0, created on 2022-07-28 11:59:23
   from 'C:\OpenServer\domains\cscart\design\backend\templates\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_62c7f32be5f794_26592458',
+  'unifunc' => 'content_62e24feb382674_45129312',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cd6375c0a99cfd2caa981a71a0a79d278b0c6166' => 
     array (
       0 => 'C:\\OpenServer\\domains\\cscart\\design\\backend\\templates\\index.tpl',
-      1 => 1656493754,
+      1 => 1658945608,
       2 => 'tygh',
     ),
   ),
@@ -32,7 +32,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'tygh:common/scripts.tpl' => 1,
   ),
 ),false)) {
-function content_62c7f32be5f794_26592458 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62e24feb382674_45129312 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\OpenServer\\domains\\cscart\\app\\functions\\smarty_plugins\\modifier.enum.php','function'=>'smarty_modifier_enum',),1=>array('file'=>'C:\\OpenServer\\domains\\cscart\\app\\functions\\smarty_plugins\\block.hook.php','function'=>'smarty_block_hook',),));
 \Tygh\Languages\Helper::preloadLangVars(array('admin_panel'));
 $_smarty_tpl->_assignInScope('pb_is_bottom_panel_open', ($_smarty_tpl->tpl_vars['auth']->value['user_type'] === smarty_modifier_enum("UserTypes::ADMIN") || $_smarty_tpl->tpl_vars['auth']->value['user_type'] === smarty_modifier_enum("UserTypes::VENDOR") || defined("THEMES_PANEL")) && (($tmp = $_COOKIE['pb_is_bottom_panel_open'] ?? null)===null||$tmp==='' ? "1" ?? null : $tmp));?>

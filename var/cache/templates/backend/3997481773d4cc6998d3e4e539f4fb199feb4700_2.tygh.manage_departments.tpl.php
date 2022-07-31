@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-07-26 16:52:05
+/* Smarty version 4.1.0, created on 2022-07-27 20:24:35
   from 'C:\OpenServer\domains\cscart\design\backend\templates\views\departments\manage_departments.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_62dff18539cd96_34213582',
+  'unifunc' => 'content_62e174d373e254_99519832',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3997481773d4cc6998d3e4e539f4fb199feb4700' => 
     array (
       0 => 'C:\\OpenServer\\domains\\cscart\\design\\backend\\templates\\views\\departments\\manage_departments.tpl',
-      1 => 1658843520,
+      1 => 1658942670,
       2 => 'tygh',
     ),
   ),
@@ -30,7 +30,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'tygh:common/mainbox.tpl' => 1,
   ),
 ),false)) {
-function content_62dff18539cd96_34213582 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62e174d373e254_99519832 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\OpenServer\\domains\\cscart\\app\\functions\\smarty_plugins\\function.include_ext.php','function'=>'smarty_function_include_ext',),1=>array('file'=>'C:\\OpenServer\\domains\\cscart\\app\\functions\\smarty_plugins\\block.hook.php','function'=>'smarty_block_hook',),));
 \Tygh\Languages\Helper::preloadLangVars(array('Name','Status','name','description','head','workers','status','edit','delete','no_data'));
 ?>
@@ -217,7 +217,7 @@ $_smarty_tpl->tpl_vars['department']->do_else = false;
 
                 <td width="15%" class="mobile-hide">
                     <?php $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, "tools_list", null, null);?>
-                        <li><?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'btn', array('type'=>"list",'text'=>$_smarty_tpl->__("edit"),'href'=>"departments.update_department"), true);?>
+                        <li><?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'btn', array('type'=>"list",'text'=>$_smarty_tpl->__("edit"),'href'=>"departments.update_department?department_id=".((string)$_smarty_tpl->tpl_vars['department']->value['department_id'])), true);?>
 </li>
                     <?php if ($_smarty_tpl->tpl_vars['allow_save']->value) {?>
                         <li><?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'btn', array('type'=>"list",'class'=>"cm-confirm",'text'=>$_smarty_tpl->__("delete"),'href'=>"departments.delete?department_id=".((string)$_smarty_tpl->tpl_vars['department']->value['department_id']),'method'=>"POST"), true);?>
