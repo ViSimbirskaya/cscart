@@ -420,7 +420,7 @@
                         {if $navigation_accordion}
                             class="accordion-group nav__header-main-menu-item {$is_active_menu_class}"
                         {else}
-                            class="dropdown nav__header-main-menu-item {$is_active_menu_class}"
+                            class="dropdown nav__header-main-menu-item asd {$is_active_menu_class}"
                         {/if}
                     >
                         <a href="{if $m.href}{fn_url($m.href)}{else}#{$first_level_title}{/if}"
@@ -446,7 +446,7 @@
                                     {/if}
                                 "
                             {else}
-                                class="dropdown-menu nav__header-main-menu-submenu {$is_active_menu_class}"
+                                class="dropdown-menu nav__header-main-menu-submenu 123 {$is_active_menu_class}"
                             {/if}
                             id="{if $m.href}{fn_url($m.href)}{else}{$first_level_title}{/if}"
                         >
@@ -490,7 +490,7 @@
                                     {if $second_level.subitems}
                                         <ul
                                             {if $navigation_accordion}
-                                                class="collapse
+                                                class="collapse 234
                                                     {if $second_level_title == $navigation.subsection && $first_level_title == $navigation.selected_tab}
                                                         in
                                                     {/if}

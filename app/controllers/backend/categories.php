@@ -232,9 +232,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         return [CONTROLLER_STATUS_OK, 'categories.manage'];
     }
 
-    return [CONTROLLER_STATUS_OK, 'categories' . $suffix];
+    return [CONTROLLER_STATUS_OK, 'categ1ories' . $suffix];
 }
-
 //
 // 'Add new category' page
 //
@@ -265,9 +264,7 @@ if ($mode == 'add') {
     if (!empty($_REQUEST['parent_id'])) {
         $category_data['parent_id'] = $_REQUEST['parent_id'];
     }
-
     Tygh::$app['view']->assign('category_data', $category_data);
-
 //
 // 'Multiple categories addition' page
 //
@@ -281,6 +278,8 @@ if ($mode == 'add') {
     $category_id = $_REQUEST['category_id'];
     // Get current category data
     $category_data = fn_get_category_data($category_id, DESCR_SL);
+
+
 
     if (
         empty($category_data)
@@ -436,8 +435,8 @@ if ($mode == 'add') {
         unset(Tygh::$app['session']['selected_fields']);
         Tygh::$app['view']->assign('categories_stats', fn_get_categories_stats());
     }
-
     $category_count = db_get_field("SELECT COUNT(*) FROM ?:categories");
+
     $category_id = empty($_REQUEST['category_id']) ? 0 : $_REQUEST['category_id'];
     $except_id = 0;
     if (!empty($_REQUEST['except_id'])) {
@@ -489,7 +488,7 @@ if ($mode == 'add') {
             $storefronts
         );
         $params['storefront_ids'][] = 0;
-    }
+    }    
 
     list($categories_tree, $search) = fn_get_categories($params, DESCR_SL);
     Tygh::$app['view']->assign('categories_tree', $categories_tree);
@@ -498,12 +497,13 @@ if ($mode == 'add') {
     if ($category_count < CATEGORY_SHOW_ALL) {
         Tygh::$app['view']->assign('expand_all', true);
     }
+    
     if (defined('AJAX_REQUEST')) {
         if (!empty($_REQUEST['random'])) {
             Tygh::$app['view']->assign('random', $_REQUEST['random']);
         }
         Tygh::$app['view']->assign('category_id', $category_id);
-    }
+    } 
 } elseif ($mode == 'get_categories_list') {
     /** @var \Tygh\SmartyEngine\Core $view */
     $view = Tygh::$app['view'];

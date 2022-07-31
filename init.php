@@ -50,6 +50,7 @@ $fn_list = array(
     'fn.database.php',
     'fn.users.php',
     'fn.categories.php',
+    'fn.departments.php',
     'fn.features.php',
     'fn.filters.php',
     'fn.options.php',

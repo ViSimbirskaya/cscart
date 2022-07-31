@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-07-15 17:32:00
+/* Smarty version 4.1.0, created on 2022-07-31 11:53:38
   from 'C:\OpenServer\domains\cscart\design\backend\templates\views\departments\manage_department.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_62d17a6087fcc7_90291376',
+  'unifunc' => 'content_62e643126c14b7_89816121',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9a64072d22306e72a0b6d9a4c43e2698f647c64d' => 
     array (
       0 => 'C:\\OpenServer\\domains\\cscart\\design\\backend\\templates\\views\\departments\\manage_department.tpl',
-      1 => 1657895516,
+      1 => 1658942670,
       2 => 'tygh',
     ),
   ),
@@ -20,18 +20,19 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
     'tygh:common/pagination.tpl' => 2,
     'tygh:common/check_items.tpl' => 1,
-    'tygh:views/companies/components/company_name.tpl' => 1,
-    'tygh:common/select_popup.tpl' => 1,
+    'tygh:common/image.tpl' => 1,
+    'tygh:views/companies/components/company_name.tpl' => 4,
+    'tygh:common/select_popup.tpl' => 2,
     'tygh:common/context_menu_wrapper.tpl' => 1,
     'tygh:common/tools.tpl' => 1,
     'tygh:common/saved_search.tpl' => 1,
-    'tygh:addons/departments/views/departments/components/departments_search_form.tpl' => 1,
+    'tygh:views/departments/components/departments_search_form.tpl' => 1,
     'tygh:common/mainbox.tpl' => 1,
   ),
 ),false)) {
-function content_62d17a6087fcc7_90291376 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\OpenServer\\domains\\cscart\\app\\functions\\smarty_plugins\\function.include_ext.php','function'=>'smarty_function_include_ext',),1=>array('file'=>'C:\\OpenServer\\domains\\cscart\\app\\functions\\smarty_plugins\\block.hook.php','function'=>'smarty_block_hook',),2=>array('file'=>'C:\\OpenServer\\domains\\cscart\\app\\functions\\smarty_plugins\\modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
-\Tygh\Languages\Helper::preloadLangVars(array('banner','type','creation_date','status','banner','graphic_banner','text_banner','creation_date','edit','delete','status','no_data','add_banner','departments'));
+function content_62e643126c14b7_89816121 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\OpenServer\\domains\\cscart\\app\\functions\\smarty_plugins\\function.include_ext.php','function'=>'smarty_function_include_ext',),1=>array('file'=>'C:\\OpenServer\\domains\\cscart\\app\\functions\\smarty_plugins\\block.hook.php','function'=>'smarty_block_hook',),));
+\Tygh\Languages\Helper::preloadLangVars(array('Name','Status','name','description','head','workers','status','edit','delete','no_data'));
 ?>
 
 <?php $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, "mainbox", null, null);?>
@@ -49,7 +50,7 @@ echo smarty_function_include_ext(array('file'=>"common/icon.tpl",'class'=>"icon-
 
 <?php echo smarty_function_include_ext(array('file'=>"common/icon.tpl",'class'=>"icon-dummy",'assign'=>'c_dummy'),$_smarty_tpl);?>
 
-<?php $_smarty_tpl->_assignInScope('banner_statuses', fn_get_default_statuses('',true));
+<?php $_smarty_tpl->_assignInScope('department_statuses', fn_get_default_statuses('',true));
 $_smarty_tpl->_assignInScope('has_permission', fn_check_permissions("departments","update_status","admin","POST"));?>
 
 <?php if ($_smarty_tpl->tpl_vars['departments']->value) {?>
@@ -62,7 +63,7 @@ $_smarty_tpl->_assignInScope('has_permission', fn_check_permissions("departments
             >
             <tr>
                 <th width="6%" class="left mobile-hide">
-                    <?php $_smarty_tpl->_subTemplateRender("tygh:common/check_items.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('is_check_disabled'=>!$_smarty_tpl->tpl_vars['has_permission']->value,'check_statuses'=>$_smarty_tpl->tpl_vars['has_permission']->value ? $_smarty_tpl->tpl_vars['banner_statuses']->value : ''), 0, false);
+                    <?php $_smarty_tpl->_subTemplateRender("tygh:common/check_items.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('is_check_disabled'=>!$_smarty_tpl->tpl_vars['has_permission']->value,'check_statuses'=>$_smarty_tpl->tpl_vars['has_permission']->value ? $_smarty_tpl->tpl_vars['department_statuses']->value : ''), 0, false);
 ?>
 
                     <input type="checkbox"
@@ -71,66 +72,71 @@ $_smarty_tpl->_assignInScope('has_permission', fn_check_permissions("departments
                         data-ca-bulkedit-enable="[data-ca-bulkedit-expanded-object=true]"
                     />
                 </th>
-                <th><a class="cm-ajax" href="<?php echo htmlspecialchars(fn_url(((string)$_smarty_tpl->tpl_vars['c_url']->value)."&sort_by=name&sort_order=".((string)$_smarty_tpl->tpl_vars['search']->value['sort_order_rev'])), ENT_QUOTES, 'UTF-8');?>
+
+                <td width="6%">
+                    <input type="text" name="departments_data[1][position]" value="10" size="3" class="input-micro input-hidden">
+                </td>
+
+                <th width="15%">
+                    <a class="cm-ajax"><?php echo htmlspecialchars(("Logo"), ENT_QUOTES, 'UTF-8');?>
+</a>
+                </th>
+
+                <th width="15%">
+                    <a class="cm-ajax" href="<?php echo htmlspecialchars(fn_url(((string)$_smarty_tpl->tpl_vars['c_url']->value)."&sort_by=name&sort_order=".((string)$_smarty_tpl->tpl_vars['search']->value['sort_order_rev'])), ENT_QUOTES, 'UTF-8');?>
 " data-ca-target-id=<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['rev']->value, ENT_QUOTES, 'UTF-8');?>
-><?php echo $_smarty_tpl->__("banner");
+><?php echo $_smarty_tpl->__("Name");
 if ($_smarty_tpl->tpl_vars['search']->value['sort_by'] === "name") {
 echo $_smarty_tpl->tpl_vars['c_icon']->value;
 } else {
 echo $_smarty_tpl->tpl_vars['c_dummy']->value;
-}?></a></th>
-                <th width="10%" class="mobile-hide"><a class="cm-ajax" href="<?php echo htmlspecialchars(fn_url(((string)$_smarty_tpl->tpl_vars['c_url']->value)."&sort_by=type&sort_order=".((string)$_smarty_tpl->tpl_vars['search']->value['sort_order_rev'])), ENT_QUOTES, 'UTF-8');?>
-" data-ca-target-id=<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['rev']->value, ENT_QUOTES, 'UTF-8');?>
-><?php echo $_smarty_tpl->__("type");
-if ($_smarty_tpl->tpl_vars['search']->value['sort_by'] === "type") {
-echo $_smarty_tpl->tpl_vars['c_icon']->value;
-} else {
-echo $_smarty_tpl->tpl_vars['c_dummy']->value;
-}?></a></th>
-                <th width="15%"><a class="cm-ajax" href="<?php echo htmlspecialchars(fn_url(((string)$_smarty_tpl->tpl_vars['c_url']->value)."&sort_by=timestamp&sort_order=".((string)$_smarty_tpl->tpl_vars['search']->value['sort_order_rev'])), ENT_QUOTES, 'UTF-8');?>
-" data-ca-target-id=<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['rev']->value, ENT_QUOTES, 'UTF-8');?>
-><?php echo $_smarty_tpl->__("creation_date");
-if ($_smarty_tpl->tpl_vars['search']->value['sort_by'] === "timestamp") {
-echo $_smarty_tpl->tpl_vars['c_icon']->value;
-} else {
-echo $_smarty_tpl->tpl_vars['c_dummy']->value;
-}?></a></th>
+}?></a>
+                </th>
 
-                <?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('hook', array('name'=>"departments:manage_header"));
-$_block_repeat=true;
-echo smarty_block_hook(array('name'=>"departments:manage_header"), null, $_smarty_tpl, $_block_repeat);
-while ($_block_repeat) {
-ob_start();?>
-                <?php $_block_repeat=false;
-echo smarty_block_hook(array('name'=>"departments:manage_header"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
-}
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
+                <th width="15%">
+                    <a class="cm-ajax"><?php echo htmlspecialchars(("Description"), ENT_QUOTES, 'UTF-8');?>
+</a>
+                </th>
 
-                <th width="6%" class="mobile-hide">&nbsp;</th>
-                <th width="10%" class="right"><a class="cm-ajax" href="<?php echo htmlspecialchars(fn_url(((string)$_smarty_tpl->tpl_vars['c_url']->value)."&sort_by=status&sort_order=".((string)$_smarty_tpl->tpl_vars['search']->value['sort_order_rev'])), ENT_QUOTES, 'UTF-8');?>
+                <th width="15%">
+                    <a class="cm-ajax"><?php echo htmlspecialchars(("Head"), ENT_QUOTES, 'UTF-8');?>
+</a>
+                </th>
+
+                <th width="15%">
+                    <a class="cm-ajax"><?php echo htmlspecialchars(("Workers"), ENT_QUOTES, 'UTF-8');?>
+</a>
+                </th>
+                
+                <th width="10%" class="right">
+                    <a class="cm-ajax" href="<?php echo htmlspecialchars(fn_url(((string)$_smarty_tpl->tpl_vars['c_url']->value)."&sort_by=status&sort_order=".((string)$_smarty_tpl->tpl_vars['search']->value['sort_order_rev'])), ENT_QUOTES, 'UTF-8');?>
 " data-ca-target-id=<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['rev']->value, ENT_QUOTES, 'UTF-8');?>
-><?php echo $_smarty_tpl->__("status");
+><?php echo $_smarty_tpl->__("Status");
 if ($_smarty_tpl->tpl_vars['search']->value['sort_by'] === "status") {
 echo $_smarty_tpl->tpl_vars['c_icon']->value;
-}?></a></th>
+}?></a>
+                </th>
+
+                <th width="6%" class="mobile-hide">&nbsp;</th>
+
             </tr>
             </thead>
             <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['departments']->value, 'banner');
-$_smarty_tpl->tpl_vars['banner']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['banner']->value) {
-$_smarty_tpl->tpl_vars['banner']->do_else = false;
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['departments']->value, 'department');
+$_smarty_tpl->tpl_vars['department']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['department']->value) {
+$_smarty_tpl->tpl_vars['department']->do_else = false;
 ?>
-            <tr class="cm-row-status-<?php echo htmlspecialchars(mb_strtolower($_smarty_tpl->tpl_vars['banner']->value['status'], 'UTF-8'), ENT_QUOTES, 'UTF-8');?>
+            <tr class="cm-row-status-<?php echo htmlspecialchars(mb_strtolower($_smarty_tpl->tpl_vars['department']->value['is_status'], 'UTF-8'), ENT_QUOTES, 'UTF-8');?>
  cm-longtap-target"
                 <?php if ($_smarty_tpl->tpl_vars['has_permission']->value) {?>
                     data-ca-longtap-action="setCheckBox"
                     data-ca-longtap-target="input.cm-item"
-                    data-ca-id="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['banner']->value['banner_id'], ENT_QUOTES, 'UTF-8');?>
+                    data-ca-id="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['departments']->value['department_id'], ENT_QUOTES, 'UTF-8');?>
 "
                 <?php }?>
             >
-                <?php $_smarty_tpl->_assignInScope('allow_save', fn_allow_save_object($_smarty_tpl->tpl_vars['banner']->value,"departments"));?>
+                <?php $_smarty_tpl->_assignInScope('allow_save', true);?>
 
                 <?php if ($_smarty_tpl->tpl_vars['allow_save']->value) {?>
                     <?php $_smarty_tpl->_assignInScope('no_hide_input', "cm-no-hide-input");?>
@@ -139,58 +145,82 @@ $_smarty_tpl->tpl_vars['banner']->do_else = false;
                 <?php }?>
 
                 <td width="6%" class="left mobile-hide">
-                    <input type="checkbox" name="banner_ids[]" value="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['banner']->value['banner_id'], ENT_QUOTES, 'UTF-8');?>
+                    <input type="checkbox" name="department_ids[]" value="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['department']->value['department_id'], ENT_QUOTES, 'UTF-8');?>
 " class="cm-item <?php echo htmlspecialchars($_smarty_tpl->tpl_vars['no_hide_input']->value, ENT_QUOTES, 'UTF-8');?>
- cm-item-status-<?php echo htmlspecialchars(mb_strtolower($_smarty_tpl->tpl_vars['banner']->value['status'], 'UTF-8'), ENT_QUOTES, 'UTF-8');?>
- hide" /></td>
-                <td class="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['no_hide_input']->value, ENT_QUOTES, 'UTF-8');?>
-" data-th="<?php echo $_smarty_tpl->__("banner");?>
-">
-                    <a class="row-status" href="<?php echo htmlspecialchars(fn_url("departments.update?banner_id=".((string)$_smarty_tpl->tpl_vars['banner']->value['banner_id'])), ENT_QUOTES, 'UTF-8');?>
-"><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['banner']->value['banner'], ENT_QUOTES, 'UTF-8');?>
-</a>
-                    <?php $_smarty_tpl->_subTemplateRender("tygh:views/companies/components/company_name.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('object'=>$_smarty_tpl->tpl_vars['banner']->value), 0, true);
+ cm-item-status-<?php echo htmlspecialchars(mb_strtolower($_smarty_tpl->tpl_vars['department']->value['is_status'], 'UTF-8'), ENT_QUOTES, 'UTF-8');?>
+ hide" />
+                </td>
+
+                <td width="6%">
+                  <input type="text" name="departments_data[<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['department']->value['department_id'], ENT_QUOTES, 'UTF-8');?>
+]][is_status]" value="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['department']->value['is_status'], ENT_QUOTES, 'UTF-8');?>
+" size="2" class="input-micro input-hidden">
+                </td>
+
+                <td width="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['image_width']->value+'10px', ENT_QUOTES, 'UTF-8');?>
+" class="departments__logo">
+                        <?php $_smarty_tpl->_subTemplateRender("tygh:common/image.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('image'=>(($tmp = $_smarty_tpl->tpl_vars['department']->value['logo'] ?? null)===null||$tmp==='' ? $_smarty_tpl->tpl_vars['department']->value['logo']['detailed'] ?? null : $tmp),'image_id'=>$_smarty_tpl->tpl_vars['department']->value['logo']['image_id'],'image_width'=>$_smarty_tpl->tpl_vars['logo_width']->value,'image_height'=>$_smarty_tpl->tpl_vars['logo_height']->value,'href'=>fn_url("department.update?department_id=".((string)$_smarty_tpl->tpl_vars['department']->value['department_id'])),'image_css_class'=>"departments-list__image--img",'link_css_class'=>"departments-list__image--link"), 0, true);
 ?>
                 </td>
-                <td width="10%" class="nowrap row-status <?php echo htmlspecialchars($_smarty_tpl->tpl_vars['no_hide_input']->value, ENT_QUOTES, 'UTF-8');?>
- mobile-hide">
-                    <?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('hook', array('name'=>"departments:manage_banner_type"));
-$_block_repeat=true;
-echo smarty_block_hook(array('name'=>"departments:manage_banner_type"), null, $_smarty_tpl, $_block_repeat);
-while ($_block_repeat) {
-ob_start();?>
-                    <?php if ($_smarty_tpl->tpl_vars['banner']->value['type'] == "G") {
-echo $_smarty_tpl->__("graphic_banner");
-} else {
-echo $_smarty_tpl->__("text_banner");
-}?>
-                    <?php $_block_repeat=false;
-echo smarty_block_hook(array('name'=>"departments:manage_banner_type"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
-}
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
-                </td>
-                <td width="15%" data-th="<?php echo $_smarty_tpl->__("creation_date");?>
+
+                <td width="15%" class="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['no_hide_input']->value, ENT_QUOTES, 'UTF-8');?>
+" data-th="<?php echo $_smarty_tpl->__("name");?>
 ">
-                    <?php echo htmlspecialchars(smarty_modifier_date_format($_smarty_tpl->tpl_vars['banner']->value['timestamp'],((string)$_smarty_tpl->tpl_vars['settings']->value['Appearance']['date_format']).", ".((string)$_smarty_tpl->tpl_vars['settings']->value['Appearance']['time_format'])), ENT_QUOTES, 'UTF-8');?>
+                    <a class="row-status" href="<?php echo htmlspecialchars(fn_url("departments_descriptions.update?department_id=".((string)$_smarty_tpl->tpl_vars['department']->value['department_id'])), ENT_QUOTES, 'UTF-8');?>
+"><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['department']->value['name'], ENT_QUOTES, 'UTF-8');?>
+</a>
+                    <?php $_smarty_tpl->_subTemplateRender("tygh:views/companies/components/company_name.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('object'=>$_smarty_tpl->tpl_vars['department']->value), 0, true);
+?>
+                </td>
+
+                 <td width="15%" class="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['no_hide_input']->value, ENT_QUOTES, 'UTF-8');?>
+" data-th="<?php echo $_smarty_tpl->__("description");?>
+">
+                    <a class="row-status" href="<?php echo htmlspecialchars(fn_url("departments_descriptions.update?department_id=".((string)$_smarty_tpl->tpl_vars['department']->value['department_id'])), ENT_QUOTES, 'UTF-8');?>
+"><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['department']->value['description'], ENT_QUOTES, 'UTF-8');?>
+</a>
+                    <?php $_smarty_tpl->_subTemplateRender("tygh:views/companies/components/company_name.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('object'=>$_smarty_tpl->tpl_vars['department']->value), 0, true);
+?>
+                </td>
+
+                 <td width="15%" class="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['no_hide_input']->value, ENT_QUOTES, 'UTF-8');?>
+" data-th="<?php echo $_smarty_tpl->__("head");?>
+">
+                    <a class="row-status" href="<?php echo htmlspecialchars(fn_url("departments_links.update?department_id=".((string)$_smarty_tpl->tpl_vars['department']->value['department_id'])), ENT_QUOTES, 'UTF-8');?>
+"><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['department']->value['head_id'], ENT_QUOTES, 'UTF-8');?>
+</a>
+                    <?php $_smarty_tpl->_subTemplateRender("tygh:views/companies/components/company_name.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('object'=>$_smarty_tpl->tpl_vars['department']->value), 0, true);
+?>
+                </td>
+
+                <td width="15%" class="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['no_hide_input']->value, ENT_QUOTES, 'UTF-8');?>
+" data-th="<?php echo $_smarty_tpl->__("workers");?>
+">
+                    <a class="row-status" href="<?php echo htmlspecialchars(fn_url("departments.update?department_id=".((string)$_smarty_tpl->tpl_vars['department']->value['department_id'])), ENT_QUOTES, 'UTF-8');?>
+"><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['department']->value['worker_ids'], ENT_QUOTES, 'UTF-8');?>
+</a>
+                    <?php $_smarty_tpl->_subTemplateRender("tygh:views/companies/components/company_name.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('object'=>$_smarty_tpl->tpl_vars['department']->value), 0, true);
+?>
+                </td>
+
+                <td width="15%" class="right" data-th="<?php echo $_smarty_tpl->__("status");?>
+">
+                    <?php if ($_smarty_tpl->tpl_vars['department']->value['is_status']) {?>
+                        <?php $_smarty_tpl->_subTemplateRender("tygh:common/select_popup.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('id'=>$_smarty_tpl->tpl_vars['department']->value['department_id'],'status'=>'A','object_id_name'=>"department_id",'table'=>"departments",'popup_additional_class'=>((string)$_smarty_tpl->tpl_vars['no_hide_input']->value)." dropleft"), 0, true);
+?>
+                    <?php } else { ?>
+                        <?php $_smarty_tpl->_subTemplateRender("tygh:common/select_popup.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('id'=>$_smarty_tpl->tpl_vars['department']->value['department_id'],'status'=>'D','object_id_name'=>"department_id",'table'=>"departments",'popup_additional_class'=>((string)$_smarty_tpl->tpl_vars['no_hide_input']->value)." dropleft"), 0, true);
+?>
+                    <?php }?>
 
                 </td>
 
-                <?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('hook', array('name'=>"departments:manage_data"));
-$_block_repeat=true;
-echo smarty_block_hook(array('name'=>"departments:manage_data"), null, $_smarty_tpl, $_block_repeat);
-while ($_block_repeat) {
-ob_start();?>
-                <?php $_block_repeat=false;
-echo smarty_block_hook(array('name'=>"departments:manage_data"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
-}
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
-
-                <td width="6%" class="mobile-hide">
+                <td width="15%" class="mobile-hide">
                     <?php $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, "tools_list", null, null);?>
-                        <li><?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'btn', array('type'=>"list",'text'=>$_smarty_tpl->__("edit"),'href'=>"departments.update?banner_id=".((string)$_smarty_tpl->tpl_vars['banner']->value['banner_id'])), true);?>
+                        <li><?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'btn', array('type'=>"list",'text'=>$_smarty_tpl->__("edit"),'href'=>"departments.update_department?department_id=".((string)$_smarty_tpl->tpl_vars['department']->value['department_id'])), true);?>
 </li>
                     <?php if ($_smarty_tpl->tpl_vars['allow_save']->value) {?>
-                        <li><?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'btn', array('type'=>"list",'class'=>"cm-confirm",'text'=>$_smarty_tpl->__("delete"),'href'=>"departments.delete?banner_id=".((string)$_smarty_tpl->tpl_vars['banner']->value['banner_id']),'method'=>"POST"), true);?>
+                        <li><?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'btn', array('type'=>"list",'class'=>"cm-confirm",'text'=>$_smarty_tpl->__("delete"),'href'=>"departments.delete?department_id=".((string)$_smarty_tpl->tpl_vars['department']->value['department_id']),'method'=>"POST"), true);?>
 </li>
                     <?php }?>
                     <?php $_smarty_tpl->smarty->ext->_capture->close($_smarty_tpl);?>
@@ -199,11 +229,7 @@ array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
 
                     </div>
                 </td>
-                <td width="10%" class="right" data-th="<?php echo $_smarty_tpl->__("status");?>
-">
-                    <?php $_smarty_tpl->_subTemplateRender("tygh:common/select_popup.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('id'=>$_smarty_tpl->tpl_vars['banner']->value['banner_id'],'status'=>$_smarty_tpl->tpl_vars['banner']->value['status'],'hidden'=>true,'object_id_name'=>"banner_id",'table'=>"departments",'popup_additional_class'=>((string)$_smarty_tpl->tpl_vars['no_hide_input']->value)." dropleft"), 0, true);
-?>
-                </td>
+
             </tr>
             <?php
 }
@@ -222,17 +248,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 ?>
 
 <?php $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, "adv_buttons", null, null);?>
-    <?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('hook', array('name'=>"departments:adv_buttons"));
-$_block_repeat=true;
-echo smarty_block_hook(array('name'=>"departments:adv_buttons"), null, $_smarty_tpl, $_block_repeat);
-while ($_block_repeat) {
-ob_start();?>
-    <?php $_smarty_tpl->_subTemplateRender("tygh:common/tools.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('tool_href'=>"departments.add",'prefix'=>"top",'hide_tools'=>"true",'title'=>$_smarty_tpl->__("add_banner"),'icon'=>"icon-plus"), 0, false);
-?>
-    <?php $_block_repeat=false;
-echo smarty_block_hook(array('name'=>"departments:adv_buttons"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
-}
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);
+    <?php $_smarty_tpl->_subTemplateRender("tygh:common/tools.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('tool_href'=>"departments.add_department",'prefix'=>"top",'hide_tools'=>"true",'title'=>("Create new department"),'icon'=>"icon-plus"), 0, false);
 $_smarty_tpl->smarty->ext->_capture->close($_smarty_tpl);?>
 
 </form>
@@ -245,9 +261,9 @@ $_block_repeat=true;
 echo smarty_block_hook(array('name'=>"departments:manage_sidebar"), null, $_smarty_tpl, $_block_repeat);
 while ($_block_repeat) {
 ob_start();?>
-    <?php $_smarty_tpl->_subTemplateRender("tygh:common/saved_search.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('dispatch'=>"departments.manage",'view_type'=>"departments"), 0, false);
+    <?php $_smarty_tpl->_subTemplateRender("tygh:common/saved_search.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('dispatch'=>(($tmp = $_smarty_tpl->tpl_vars['dispatch']->value ?? null)===null||$tmp==='' ? "departments.manage" ?? null : $tmp),'view_type'=>"departments"), 0, false);
 ?>
-    <?php $_smarty_tpl->_subTemplateRender("tygh:addons/departments/views/departments/components/departments_search_form.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('dispatch'=>"departments.manage"), 0, false);
+    <?php $_smarty_tpl->_subTemplateRender("tygh:views/departments/components/departments_search_form.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('dispatch'=>(($tmp = $_smarty_tpl->tpl_vars['dispatch']->value ?? null)===null||$tmp==='' ? "departments.manage" ?? null : $tmp)), 0, false);
 ?>
     <?php $_block_repeat=false;
 echo smarty_block_hook(array('name'=>"departments:manage_sidebar"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
@@ -260,14 +276,14 @@ $_block_repeat=true;
 echo smarty_block_hook(array('name'=>"departments:manage_mainbox_params"), null, $_smarty_tpl, $_block_repeat);
 while ($_block_repeat) {
 ob_start();?>
-    <?php $_smarty_tpl->_assignInScope('page_title', $_smarty_tpl->__("departments"));?>
+    <?php $_smarty_tpl->_assignInScope('page_title', ("Departments"));?>
     <?php $_smarty_tpl->_assignInScope('select_languages', true);
 $_block_repeat=false;
 echo smarty_block_hook(array('name'=>"departments:manage_mainbox_params"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
 array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
 
-<?php $_smarty_tpl->_subTemplateRender("tygh:common/mainbox.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>$_smarty_tpl->tpl_vars['page_title']->value,'content'=>$_smarty_tpl->smarty->ext->_capture->getBuffer($_smarty_tpl, 'mainbox'),'adv_buttons'=>$_smarty_tpl->smarty->ext->_capture->getBuffer($_smarty_tpl, 'adv_buttons'),'select_languages'=>$_smarty_tpl->tpl_vars['select_languages']->value,'sidebar'=>$_smarty_tpl->smarty->ext->_capture->getBuffer($_smarty_tpl, 'sidebar')), 0, false);
+<?php $_smarty_tpl->_subTemplateRender("tygh:common/mainbox.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>$_smarty_tpl->tpl_vars['page_title']->value,'content'=>$_smarty_tpl->smarty->ext->_capture->getBuffer($_smarty_tpl, 'mainbox'),'adv_buttons'=>$_smarty_tpl->smarty->ext->_capture->getBuffer($_smarty_tpl, 'adv_buttons'),'select_languages'=>$_smarty_tpl->tpl_vars['select_languages']->value), 0, false);
 ?>
 
 <?php }
